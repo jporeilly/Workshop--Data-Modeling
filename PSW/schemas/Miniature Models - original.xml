@@ -28,5 +28,13 @@
     </Dimension>
     <Measure name="Sales" column="TOTALPRICE" datatype="Numeric" formatString="&#163;#,###.00" aggregator="sum" visible="true">
     </Measure>
+    <Measure name="Quantity Ordered" column="QUANTITYORDERED" datatype="Integer" formatString="#" aggregator="distinct-count" visible="true">
+    </Measure>
+    <NamedSet name="Top 3 Territories">
+      <Formula>
+        <![CDATA[TopCount([CUSTOMERS.Customers].[Territory].Members,3,          [Measures].[Sales]
+                )]]>
+      </Formula>
+    </NamedSet>
   </Cube>
 </Schema>
